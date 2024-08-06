@@ -12,6 +12,22 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    implementation 'io.netty:netty-all:4.1.24.Final'
+
+
+    // Gradle如果想要使用Lombok，不能像Maven一样直接导入Lombok的jar就行
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+
+    // 想要使用Lombok，还需要使用导入注解处理器(在Maven中是默认会导入这个依赖的)
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+
+    // logback-classic
+    implementation 'org.slf4j:slf4j-api:1.7.27'
+    implementation 'ch.qos.logback:logback-core:1.4.14'
+    implementation 'ch.qos.logback:logback-classic:1.4.12'
+
 }
 
 test {
